@@ -1,0 +1,109 @@
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #015854;
+  font-size: large;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.actions button {
+  margin-right: 5px;
+}
+
+td {
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+
+}
+
+.edit-icon {
+  padding: 8px 16px;
+  color: #558582;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.edit-button {
+  padding: 8px 16px;
+  background-color: #558582;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 2px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  height: 3vw;
+  margin: 1px;
+}
+
+.search-input {
+  padding: 6px 10px;
+  background-color: #ffffff;
+  border: 2px solid #558582;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  width: 200px;
+}
+
+.search-input:focus {
+  border-color: #95fbf6;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-icon-container {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.buttons {
+  display: flex;
+  margin-left: 35vw;
+  margin-top: 6vh;
+}
+

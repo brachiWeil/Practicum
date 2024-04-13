@@ -1,0 +1,17 @@
+<form>
+  <div class="centered-buttons">
+    <button type="button" (click)="showAdminInputs = true">Login as Admin</button>
+    <button type="button" routerLink="/employees/employee-list">Login as Customer</button>
+  </div>
+  <div *ngIf="showAdminInputs">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" #username required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" #password required>
+    </div>
+    <button type="button" (click)="login(username.value, password.value)">Login</button>
+  </div>
+</form>

@@ -1,0 +1,85 @@
+<div class="employee-container" >
+  <div class="employee-form">
+    <form [formGroup]="employeeForm">
+      <div class="form-group">
+        <div class="warp-input">
+          <label for="idEmployee">ID:</label>
+          <input type="text" id="idEmployee" formControlName="idEmployee" class="form-control">
+        </div>
+        <div
+          *ngIf="employeeForm.controls['idEmployee'].invalid && (employeeForm.controls['idEmployee'].dirty || employeeForm.controls['idEmployee'].touched)"
+          class="text-danger">
+          <div *ngIf="employeeForm.controls['idEmployee'].hasError('required')">ID is required.</div>
+          <div *ngIf="employeeForm.get('idEmployee')?.hasError('pattern')">ID must contain exactly 9 digits.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="warp-input">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" formControlName="firstName" class="form-control">
+        </div>
+        <div
+          *ngIf="employeeForm.controls['firstName'].invalid && (employeeForm.controls['firstName'].dirty || employeeForm.controls['firstName'].touched)"
+          class="text-danger">
+          <div *ngIf="employeeForm.controls['firstName'].hasError('required')">First Name is required.</div>
+          <div *ngIf="employeeForm.controls['firstName'].hasError('pattern')">First Name must contain between 2 to 20
+            characters.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="warp-input">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" formControlName="lastName" class="form-control">
+        </div>
+        <div
+          *ngIf="employeeForm.controls['lastName'].invalid && (employeeForm.controls['lastName'].dirty || employeeForm.controls['lastName'].touched)"
+          class="text-danger">
+          <div *ngIf="employeeForm.controls['lastName'].hasError('required')">Last Name is required.</div>
+          <div *ngIf="employeeForm.controls['lastName'].hasError('pattern')">"Last Name must contain between 2 to 20
+            characters.</div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="warp-input">
+          <label for="startDate">Start Date:</label>
+          <input type="datetime-local" id="startDate" formControlName="startDate" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="warp-input">
+          <label for="bornDate">Born Date:</label>
+          <input type="datetime-local" id="bornDate" formControlName="bornDate" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="warp-input">
+          <label for="gender">Gender:</label>
+          <select id="gender" formControlName="gender" class="form-control">
+            <option [ngValue]="true">Male</option>
+            <option [ngValue]="false">Female</option>
+          </select>
+        </div>
+      </div>
+      <ng-container>
+        <ng-container *ngFor="let x of employeeForm.controls['roles'].value,let i=index">
+          <app-role [role]="x" (deleteRole)="deleteRole(i)" (updateRole)="updateRole($event,i)"></app-role>
+        </ng-container>
+      </ng-container>
+      <button class="button-add" [matTooltip]="'add role'" (click)="addRole()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <br>
+      <label *ngIf="duplicateRole" class="errorInRole">You cannot choose 2 identical roles
+      </label>
+      <br>
+      <label *ngIf="dateRoleNoValid" class="errorInRole">date enter to role  must be after date enter to work 
+      </label>
+      <div class="div-button">
+      <button type="button" (click)=save()  [disabled]="employeeForm.invalid|| !isRoleValid()"
+       >Save</button> 
+      <button type="button"   (click)=cencel()>cencel</button>
+    </div>
+    </form>
+  </div>
+</div>

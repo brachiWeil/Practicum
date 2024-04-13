@@ -1,0 +1,47 @@
+.buttonOfRole {
+  border: none;
+  background: white;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+label {
+  width: 9vw;
+  font-size: 11px;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+select {
+  border-radius: 5px;
+  margin-bottom: 2px;
+  height: 26px;
+  font-size: 14px;
+  padding: 2px;
+  width: 10vw;
+}
+
+select {
+  cursor: pointer;
+}
+
+.role-form {
+  width: 20%;
+  max-width: 400px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px black;
+  overflow-x: auto;
+}
+.role label::before {
+  content: "*";
+  color: red;
+  margin-right: 3px;
+}
